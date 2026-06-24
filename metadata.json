@@ -1,0 +1,6 @@
+{
+  "name": "Smart Parking Management System",
+  "description": "A comprehensive SaaS dashboard for managing parking floors, slots, vehicle entry/exit, revenue tracking, and analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
