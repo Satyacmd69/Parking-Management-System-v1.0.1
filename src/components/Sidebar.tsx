@@ -52,23 +52,23 @@ export function Sidebar({
       id="sidebar-navigation"
       animate={{ width: isCollapsed ? '76px' : '260px' }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="relative flex flex-col h-screen bg-[#0c0c0e] border-r border-slate-800 text-slate-300 select-none overflow-hidden shrink-0 z-30"
+      className="relative flex flex-col h-screen bg-white border-r border-slate-200 text-slate-600 select-none overflow-hidden shrink-0 z-30"
     >
       {/* Brand Header */}
-      <div className="flex items-center justify-between px-5 h-16 border-b border-slate-800 shrink-0">
+      <div className="flex items-center justify-between px-5 h-16 border-b border-slate-200 shrink-0">
         <div className="flex items-center gap-3 overflow-hidden">
           <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-indigo-600/30">
             <ParkingCircle size={22} className="stroke-[2.5]" />
           </div>
           {!isCollapsed && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col shrink-0"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ delay: 0.1 }}
+               className="flex flex-col shrink-0"
             >
-              <span className="font-sans font-bold text-white tracking-wide text-sm">SPARK OS</span>
-              <span className="text-[10px] font-mono text-slate-500 font-bold tracking-widest">PARKING SYS</span>
+              <span className="font-sans font-bold text-slate-800 tracking-wide text-sm">SPARK OS</span>
+              <span className="text-[10px] font-mono text-slate-400 font-bold tracking-widest">PARKING SYS</span>
             </motion.div>
           )}
         </div>
@@ -76,7 +76,7 @@ export function Sidebar({
         {/* Collapse toggle (desktop only) */}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="hidden md:flex p-1 rounded bg-white/5 border border-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+          className="hidden md:flex p-1 rounded bg-slate-50 border border-slate-200 hover:bg-slate-100 text-slate-500 hover:text-slate-900 transition-colors cursor-pointer"
         >
           {isCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
         </button>
@@ -94,14 +94,14 @@ export function Sidebar({
               onClick={() => setActiveScreen(item.id)}
               className={`w-full flex items-center gap-3.5 px-3 py-2.5 rounded-xl transition-all duration-200 group relative cursor-pointer ${
                 isActive
-                  ? 'bg-indigo-600/10 text-indigo-400 border-l-4 border-indigo-500 font-semibold'
-                  : 'hover:bg-white/5 hover:text-white'
+                  ? 'bg-indigo-50 text-indigo-600 border-l-4 border-indigo-600 font-semibold'
+                  : 'hover:bg-slate-50 hover:text-slate-900'
               }`}
             >
               <Icon
                 size={20}
                 className={`transition-colors shrink-0 ${
-                  isActive ? 'text-indigo-400' : 'text-slate-400 group-hover:text-slate-200'
+                  isActive ? 'text-indigo-600' : 'text-slate-400 group-hover:text-slate-700'
                 }`}
               />
               {!isCollapsed && (
@@ -116,7 +116,7 @@ export function Sidebar({
 
               {/* Tooltip on collapse */}
               {isCollapsed && (
-                <div className="absolute left-16 top-1/2 -translate-y-1/2 scale-0 group-hover:scale-100 bg-slate-900 border border-white/10 text-white text-[11px] font-medium py-1 px-2.5 rounded-lg shadow-xl pointer-events-none transition-all duration-150 z-50 whitespace-nowrap">
+                <div className="absolute left-16 top-1/2 -translate-y-1/2 scale-0 group-hover:scale-100 bg-slate-900 border border-slate-800 text-white text-[11px] font-medium py-1 px-2.5 rounded-lg shadow-xl pointer-events-none transition-all duration-150 z-50 whitespace-nowrap">
                   {item.label}
                 </div>
               )}
@@ -126,18 +126,18 @@ export function Sidebar({
       </nav>
 
       {/* User Section / Profile */}
-      <div className="border-t border-slate-800 p-3 shrink-0">
+      <div className="border-t border-slate-200 p-3 shrink-0">
         {!isCollapsed ? (
           <div className="flex flex-col gap-3">
             {/* Profile badge */}
-            <div className="flex items-center gap-3 bg-white/5 p-2 rounded-xl border border-slate-800 overflow-hidden">
-              <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center font-bold text-xs text-white uppercase shrink-0 border border-white/10">
+            <div className="flex items-center gap-3 bg-slate-50 p-2 rounded-xl border border-slate-200 overflow-hidden">
+              <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center font-bold text-xs text-slate-700 uppercase shrink-0 border border-slate-300">
                 {user?.name.substring(0, 2) || 'OP'}
               </div>
               <div className="flex flex-col min-w-0">
-                <span className="text-xs font-bold text-white truncate">{user?.name}</span>
+                <span className="text-xs font-bold text-slate-800 truncate">{user?.name}</span>
                 <span className="text-[10px] text-slate-500 truncate">{user?.email}</span>
-                <span className="flex items-center gap-1 text-[9px] font-bold font-mono tracking-wider text-indigo-400 mt-0.5">
+                <span className="flex items-center gap-1 text-[9px] font-bold font-mono tracking-wider text-indigo-600 mt-0.5">
                   <ShieldAlert size={10} />
                   {user?.role.toUpperCase()}
                 </span>
@@ -147,7 +147,7 @@ export function Sidebar({
             {/* Logout button */}
             <button
               onClick={onLogout}
-              className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-red-950/20 hover:bg-red-950/50 border border-red-500/10 hover:border-red-500/20 text-red-400 text-xs font-semibold transition-all cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-red-50 hover:bg-red-100/85 border border-red-200 text-red-600 text-xs font-semibold transition-all cursor-pointer"
             >
               <Power size={14} /> Log Out System
             </button>
@@ -156,7 +156,7 @@ export function Sidebar({
           <div className="flex flex-col items-center gap-3">
             <button
               onClick={onLogout}
-              className="w-10 h-10 rounded-xl bg-red-950/20 hover:bg-red-950/50 border border-red-500/10 hover:border-red-500/20 flex items-center justify-center text-red-400 hover:text-red-300 transition-colors cursor-pointer"
+              className="w-10 h-10 rounded-xl bg-red-50 hover:bg-red-100/85 border border-red-200 flex items-center justify-center text-red-600 hover:text-red-700 transition-colors cursor-pointer"
               title="Logout System"
             >
               <Power size={16} />

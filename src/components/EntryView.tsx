@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { LogIn, Car, Bike, Truck, Check, QrCode } from 'lucide-react';
+import { LogIn, Car, Bike, Truck, Check } from 'lucide-react';
 import { Vehicle, VehicleType } from '../types';
 import { api } from '../utils/api';
 import { TicketPrint } from './TicketPrint';
@@ -9,12 +9,14 @@ interface EntryViewProps {
   fetchDashboardMetrics: () => void;
   fetchSlots: () => void;
   fetchFloors: () => void;
+  syncAllData?: () => void;
 }
 
 export function EntryView({
   fetchDashboardMetrics,
   fetchSlots,
-  fetchFloors
+  fetchFloors,
+  syncAllData
 }: EntryViewProps) {
   const [vehicleNumber, setVehicleNumber] = useState('');
   const [ownerName, setOwnerName] = useState('');
@@ -56,6 +58,9 @@ export function EntryView({
       fetchDashboardMetrics();
       fetchSlots();
       fetchFloors();
+      if (syncAllData) {
+        syncAllData();
+      }
     } catch (err: any) {
       setError(err.message || 'No slots available or error checking in vehicle');
     } finally {
@@ -70,29 +75,29 @@ export function EntryView({
   ];
 
   return (
-    <div className="p-6 max-w-xl mx-auto" id="entry-screen">
+    <div className="p-6 max-w-xl mx-auto animate-fadeIn" id="entry-screen">
       {/* Title */}
-      <div className="border-b border-slate-800 pb-4 mb-6">
-        <h2 className="text-xl font-sans font-extrabold text-white flex items-center gap-2">
-          <LogIn className="text-indigo-500" /> Vehicle Check-In
+      <div className="border-b border-slate-200 pb-4 mb-6">
+        <h2 className="text-xl font-sans font-extrabold text-slate-800 flex items-center gap-2">
+          <LogIn className="text-indigo-600" /> Vehicle Check-In
         </h2>
-        <p className="text-xs text-slate-400">Register incoming vehicle and generate safe-entry parking tickets</p>
+        <p className="text-xs text-slate-500">Register incoming vehicle and allocate secure parking slot automatically</p>
       </div>
 
       {/* Message banners */}
       {error && (
-        <div className="p-3.5 bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono rounded-xl mb-4">
+        <div className="p-3.5 bg-red-50 border border-red-200 text-red-600 text-xs font-mono rounded-xl mb-4">
           {error}
         </div>
       )}
       {success && (
-        <div className="p-3.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono rounded-xl mb-4 flex items-center gap-2">
+        <div className="p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-600 text-xs font-mono rounded-xl mb-4 flex items-center gap-2">
           <Check size={14} /> {success}
         </div>
       )}
 
-      {/* Glassmorphic Check-In Form */}
-      <form onSubmit={handleSubmitEntry} className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-6 shadow-xl">
+      {/* Check-In Form */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-6 shadow-sm">
         {/* Category select block */}
         <div className="space-y-2">
           <label className="text-[10px] font-mono font-bold text-slate-400 tracking-wider">VEHICLE CATEGORY</label>
@@ -107,8 +112,8 @@ export function EntryView({
                   onClick={() => setVehicleType(t.id)}
                   className={`border rounded-xl p-3.5 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-indigo-600/15 border-indigo-500 text-indigo-400 font-bold shadow-md shadow-indigo-600/5'
-                      : 'bg-transparent border-slate-800 text-slate-400 hover:bg-white/5 hover:text-white'
+                      ? 'bg-indigo-50 border-indigo-500 text-indigo-600 font-bold shadow-sm'
+                      : 'bg-white border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-700'
                   }`}
                 >
                   <Icon size={20} />
@@ -134,7 +139,7 @@ export function EntryView({
               placeholder="e.g. KA-51-MD-9090"
               value={vehicleNumber}
               onChange={(e) => setVehicleNumber(e.target.value)}
-              className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-700 font-mono font-bold tracking-widest focus:border-indigo-500 outline-none uppercase"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 font-mono font-bold tracking-widest focus:border-indigo-500 focus:bg-white outline-none uppercase transition-all"
               required
             />
           </div>
@@ -149,7 +154,7 @@ export function EntryView({
               placeholder="e.g. Rajesh Kumar"
               value={ownerName}
               onChange={(e) => setOwnerName(e.target.value)}
-              className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 font-sans focus:border-indigo-500 outline-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 placeholder-slate-400 font-sans focus:border-indigo-500 focus:bg-white outline-none transition-all"
             />
           </div>
         </div>
@@ -157,12 +162,13 @@ export function EntryView({
         {/* Action Button */}
         <button
           type="submit"
+          onClick={handleSubmitEntry}
           disabled={loading}
-          className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-lg shadow-indigo-600/25 flex items-center justify-center gap-2 pt-3.5 cursor-pointer disabled:opacity-50"
+          className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs tracking-wider uppercase transition-all shadow-md flex items-center justify-center gap-2 pt-3.5 cursor-pointer disabled:opacity-50"
         >
           <LogIn size={14} /> {loading ? 'Checking in...' : 'Allocate Slot & Create Ticket'}
         </button>
-      </form>
+      </div>
 
       {/* Ticket printing modal overlay */}
       {ticketVehicle && (

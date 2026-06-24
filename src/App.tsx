@@ -179,6 +179,9 @@ export default function App() {
             floors={floors}
             fetchSlots={fetchSlots}
             userRole={user.role}
+            activeVehicles={activeVehicles}
+            syncAllData={syncAllData}
+            onSelectVehicle={handleSelectVehicleForBilling}
           />
         );
       case 'entry':
@@ -187,6 +190,7 @@ export default function App() {
             fetchDashboardMetrics={fetchDashboardMetrics}
             fetchSlots={fetchSlots}
             fetchFloors={fetchFloors}
+            syncAllData={syncAllData}
           />
         );
       case 'exit':
@@ -199,6 +203,7 @@ export default function App() {
             fetchFloors={fetchFloors}
             selectedVehicleFromOutside={selectedVehicleFromOutside}
             clearOutsideVehicleSelection={() => setSelectedVehicleFromOutside(null)}
+            syncAllData={syncAllData}
           />
         );
       case 'reports':
@@ -216,7 +221,7 @@ export default function App() {
         return <SettingsView />;
       default:
         return (
-          <div className="p-6 text-slate-500 font-mono text-xs">
+          <div className="p-6 text-slate-400 font-mono text-xs">
             Module under active assembly.
           </div>
         );
@@ -224,7 +229,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-[#09090b] text-slate-200 font-sans" id="spark-system-layout">
+    <div className="flex h-screen w-screen overflow-hidden bg-slate-50 text-slate-800 font-sans" id="spark-system-layout">
       {/* Dynamic backdrop glows */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none select-none z-10" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none select-none z-10" />
@@ -240,7 +245,7 @@ export default function App() {
       />
 
       {/* Central Screen Body */}
-      <div className="flex flex-col flex-1 h-screen min-w-0 bg-[#09090b]/20 z-20 relative">
+      <div className="flex flex-col flex-1 h-screen min-w-0 bg-white/40 z-20 relative">
         <Header
           user={user}
           notifications={notifications}

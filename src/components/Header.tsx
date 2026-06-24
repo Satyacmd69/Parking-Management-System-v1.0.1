@@ -57,28 +57,28 @@ export function Header({
   return (
     <header
       id="top-dashboard-header"
-      className="flex items-center justify-between h-16 px-6 bg-[#09090b]/80 backdrop-blur-md border-b border-slate-800 relative z-20"
+      className="flex items-center justify-between h-16 px-6 bg-white border-b border-slate-200 relative z-20 shadow-sm"
     >
       {/* Title & Greeting */}
       <div className="flex flex-col">
-        <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-wider uppercase">OPERATOR DASHBOARD</span>
-        <h1 className="text-sm font-sans font-bold text-white leading-tight">
-          Welcome back, <span className="text-indigo-300 font-extrabold">{user?.name || 'Operator'}</span>
+        <span className="text-[10px] font-mono text-indigo-600 font-bold tracking-wider uppercase">OPERATOR DASHBOARD</span>
+        <h1 className="text-sm font-sans font-bold text-slate-800 leading-tight">
+          Welcome back, <span className="text-indigo-600 font-extrabold">{user?.name || 'Operator'}</span>
         </h1>
       </div>
 
       {/* Global Actions */}
       <div className="flex items-center gap-6">
         {/* Live Clock / Calendar */}
-        <div className="hidden sm:flex items-center gap-4 bg-white/5 border border-white/5 rounded-xl px-3 py-1.5 font-mono text-xs select-none">
-          <div className="flex items-center gap-1.5 text-indigo-400">
+        <div className="hidden sm:flex items-center gap-4 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 font-mono text-xs select-none">
+          <div className="flex items-center gap-1.5 text-indigo-600">
             <Calendar size={13} />
-            <span className="text-slate-300 font-semibold">{formatDate(time)}</span>
+            <span className="text-slate-700 font-semibold">{formatDate(time)}</span>
           </div>
-          <span className="text-slate-700">|</span>
-          <div className="flex items-center gap-1.5 text-emerald-400">
+          <span className="text-slate-300">|</span>
+          <div className="flex items-center gap-1.5 text-emerald-600">
             <Clock size={13} className="animate-spin-slow" />
-            <span className="text-white font-bold">{formatTime(time)}</span>
+            <span className="text-slate-900 font-bold">{formatTime(time)}</span>
           </div>
         </div>
 
@@ -86,11 +86,11 @@ export function Header({
         <div className="relative">
           <button
             onClick={() => setShowNotifMenu(!showNotifMenu)}
-            className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/5 transition-all relative cursor-pointer"
+            className="p-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200 shadow-sm transition-all relative cursor-pointer"
           >
             <Bell size={16} />
             {unreadCount > 0 && (
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-500 rounded-full ring-2 ring-slate-900 animate-pulse" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full ring-2 ring-white animate-pulse" />
             )}
           </button>
 
@@ -103,9 +103,9 @@ export function Header({
               />
 
               {/* Notification Menu Container */}
-              <div className="absolute right-0 mt-2.5 w-80 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl p-4 z-50 overflow-hidden">
-                <div className="flex items-center justify-between border-b border-white/5 pb-2.5 mb-2.5">
-                  <span className="text-xs font-bold text-white flex items-center gap-2">
+              <div className="absolute right-0 mt-2.5 w-80 bg-white border border-slate-200 rounded-2xl shadow-xl p-4 z-50 overflow-hidden">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2.5 mb-2.5">
+                  <span className="text-xs font-bold text-slate-950 flex items-center gap-2">
                     System Alerts
                     {unreadCount > 0 && (
                       <span className="text-[10px] bg-indigo-600 text-white font-bold font-mono px-1.5 py-0.5 rounded-full">
@@ -118,14 +118,14 @@ export function Header({
                       <>
                         <button
                           onClick={handleMarkAllRead}
-                          className="text-[10px] font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
+                          className="text-[10px] font-semibold text-indigo-600 hover:text-indigo-500 transition-colors"
                         >
                           Mark all read
                         </button>
-                        <span className="text-slate-700 text-xs">·</span>
+                        <span className="text-slate-300 text-xs">·</span>
                         <button
                           onClick={handleClearNotif}
-                          className="text-[10px] font-semibold text-slate-500 hover:text-red-400 flex items-center gap-1 transition-colors"
+                          className="text-[10px] font-semibold text-slate-500 hover:text-red-600 flex items-center gap-1 transition-colors"
                         >
                           <Trash2 size={10} /> Clear
                         </button>
@@ -137,7 +137,7 @@ export function Header({
                 <div className="max-h-64 overflow-y-auto space-y-2.5 pr-1 scrollbar-thin">
                   {notifications.length === 0 ? (
                     <div className="text-center py-6">
-                      <p className="text-xs text-slate-500">No active alerts</p>
+                      <p className="text-xs text-slate-400">No active alerts</p>
                     </div>
                   ) : (
                     notifications.map((n) => {
@@ -152,16 +152,16 @@ export function Header({
                           className={`p-2.5 rounded-xl border transition-all ${
                             n.read
                               ? 'bg-transparent border-transparent opacity-60'
-                              : 'bg-white/5 border-white/5'
+                              : 'bg-slate-50 border-slate-100'
                           }`}
                         >
                           <div className="flex items-start gap-2">
                             <span className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${indicatorColor}`} />
                             <div className="flex flex-col gap-0.5 min-w-0">
-                              <p className="text-xs font-medium text-slate-200 leading-snug break-words">
+                              <p className="text-xs font-medium text-slate-700 leading-snug break-words">
                                 {n.message}
                               </p>
-                              <span className="text-[9px] font-mono text-slate-500">
+                              <span className="text-[9px] font-mono text-slate-400">
                                 {new Date(n.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                               </span>
                             </div>
