@@ -57,7 +57,7 @@ export function Header({
   return (
     <header
       id="top-dashboard-header"
-      className="flex items-center justify-between h-16 px-6 bg-slate-900/60 backdrop-blur-md border-b border-white/5 relative z-20"
+      className="flex items-center justify-between h-16 px-6 bg-[#09090b]/80 backdrop-blur-md border-b border-slate-800 relative z-20"
     >
       {/* Title & Greeting */}
       <div className="flex flex-col">

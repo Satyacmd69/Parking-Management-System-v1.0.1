@@ -95,17 +95,17 @@ export function ReportsView({
 
       {/* Numerical aggregate widgets */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white/5 border border-white/5 rounded-2xl p-4 flex flex-col justify-between">
+        <div className="bg-white/5 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between">
           <span className="text-[9px] font-mono font-bold text-slate-500">COLLECTED TOTALS</span>
           <span className="text-xl font-bold text-emerald-400 font-sans mt-1">₹{totalCompletedRev}</span>
           <span className="text-[10px] text-slate-400 mt-0.5">Across all parking durations</span>
         </div>
-        <div className="bg-white/5 border border-white/5 rounded-2xl p-4 flex flex-col justify-between">
+        <div className="bg-white/5 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between">
           <span className="text-[9px] font-mono font-bold text-slate-500">TRANSACTIONS COUNT</span>
           <span className="text-xl font-bold text-white font-sans mt-1">{totalCompletedCount} TX</span>
           <span className="text-[10px] text-slate-400 mt-0.5">Checked out vehicles</span>
         </div>
-        <div className="bg-white/5 border border-white/5 rounded-2xl p-4 flex flex-col justify-between">
+        <div className="bg-white/5 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between">
           <span className="text-[9px] font-mono font-bold text-slate-500">AVERAGE TICKET FEE</span>
           <span className="text-xl font-bold text-indigo-400 font-sans mt-1">₹{avgTicketVal}</span>
           <span className="text-[10px] text-slate-400 mt-0.5">Avg collected per vehicle</span>
@@ -113,7 +113,7 @@ export function ReportsView({
       </div>
 
       {/* Tabs list */}
-      <div className="border-b border-white/5 flex gap-4">
+      <div className="border-b border-slate-800 flex gap-4">
         <button
           onClick={() => setActiveTab('transactions')}
           className={`pb-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer ${
@@ -133,7 +133,7 @@ export function ReportsView({
       </div>
 
       {/* Content panes */}
-      <div className="bg-slate-900/40 border border-white/5 rounded-2xl p-5 shadow-xl">
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-5 shadow-xl">
         {activeTab === 'transactions' ? (
           <div className="space-y-4">
             {/* Filter */}
@@ -146,7 +146,7 @@ export function ReportsView({
                   placeholder="Filter Vehicle..."
                   value={txSearch}
                   onChange={(e) => setTxSearch(e.target.value)}
-                  className="w-full bg-slate-950 border border-white/5 rounded-lg pl-7 pr-3 py-1 text-[11px] text-white placeholder-slate-700 outline-none focus:border-indigo-500"
+                  className="w-full bg-[#0c0c0e] border border-slate-800 rounded-lg pl-7 pr-3 py-1 text-[11px] text-white placeholder-slate-700 outline-none focus:border-indigo-500"
                 />
               </div>
             </div>
@@ -155,7 +155,7 @@ export function ReportsView({
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-slate-500 border-b border-white/5 pb-2">
+                  <tr className="text-slate-500 border-b border-slate-800 pb-2">
                     <th className="font-mono font-bold pb-2">TRANSACTION ID</th>
                     <th className="font-mono font-bold pb-2">VEHICLE NO</th>
                     <th className="font-mono font-bold pb-2">DURATION</th>
@@ -164,7 +164,7 @@ export function ReportsView({
                     <th className="font-mono font-bold pb-2 text-right">DATE TIME</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-slate-800">
                   {filteredTransactions.length === 0 ? (
                     <tr>
                       <td colSpan={6} className="text-center py-8 text-slate-600 font-mono">
@@ -196,14 +196,14 @@ export function ReportsView({
         ) : (
           <div className="space-y-4">
             {/* Filter and settings */}
-            <div className="flex justify-between items-center border-b border-white/5 pb-3">
+            <div className="flex justify-between items-center border-b border-slate-800 pb-3">
               <span className="text-xs font-bold text-white">System Events Track</span>
               <div className="flex items-center gap-1.5">
                 <Filter size={11} className="text-indigo-400 shrink-0" />
                 <select
                   value={auditFilter}
                   onChange={(e) => setAuditFilter(e.target.value)}
-                  className="bg-slate-950 border border-white/5 rounded-lg px-2.5 py-1 text-[11px] text-slate-400 outline-none focus:border-indigo-500"
+                  className="bg-[#0c0c0e] border border-slate-800 rounded-lg px-2.5 py-1 text-[11px] text-slate-400 outline-none focus:border-indigo-500"
                 >
                   <option value="all">All Events</option>
                   <option value="auth">Authentications</option>
@@ -229,7 +229,7 @@ export function ReportsView({
                   if (log.type === 'vehicle') badgeColor = "bg-orange-500/10 text-orange-400";
 
                   return (
-                    <div key={log._id} className="p-3 bg-white/5 border border-white/5 rounded-xl flex flex-col sm:flex-row justify-between gap-2 text-xs">
+                    <div key={log._id} className="p-3 bg-white/5 border border-slate-800 rounded-xl flex flex-col sm:flex-row justify-between gap-2 text-xs">
                       <div className="flex items-start gap-2.5">
                         <span className={`px-1.5 py-0.5 rounded font-mono text-[9px] font-bold uppercase tracking-wider shrink-0 mt-0.5 ${badgeColor}`}>
                           {log.type}

@@ -52,10 +52,10 @@ export function Sidebar({
       id="sidebar-navigation"
       animate={{ width: isCollapsed ? '76px' : '260px' }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="relative flex flex-col h-screen bg-slate-950/80 backdrop-blur-md border-r border-white/5 text-slate-300 select-none overflow-hidden shrink-0 z-30"
+      className="relative flex flex-col h-screen bg-[#0c0c0e] border-r border-slate-800 text-slate-300 select-none overflow-hidden shrink-0 z-30"
     >
       {/* Brand Header */}
-      <div className="flex items-center justify-between px-5 h-16 border-b border-white/5 shrink-0">
+      <div className="flex items-center justify-between px-5 h-16 border-b border-slate-800 shrink-0">
         <div className="flex items-center gap-3 overflow-hidden">
           <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-indigo-600/30">
             <ParkingCircle size={22} className="stroke-[2.5]" />
@@ -126,11 +126,11 @@ export function Sidebar({
       </nav>
 
       {/* User Section / Profile */}
-      <div className="border-t border-white/5 p-3 shrink-0">
+      <div className="border-t border-slate-800 p-3 shrink-0">
         {!isCollapsed ? (
           <div className="flex flex-col gap-3">
             {/* Profile badge */}
-            <div className="flex items-center gap-3 bg-white/5 p-2 rounded-xl border border-white/5 overflow-hidden">
+            <div className="flex items-center gap-3 bg-white/5 p-2 rounded-xl border border-slate-800 overflow-hidden">
               <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center font-bold text-xs text-white uppercase shrink-0 border border-white/10">
                 {user?.name.substring(0, 2) || 'OP'}
               </div>

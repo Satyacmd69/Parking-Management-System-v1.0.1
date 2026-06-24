@@ -39,7 +39,7 @@ export function UsersView({ currentUserRole }: UsersViewProps) {
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6" id="users-screen">
       {/* Title */}
-      <div className="border-b border-white/5 pb-4">
+      <div className="border-b border-slate-800 pb-4">
         <h2 className="text-xl font-sans font-extrabold text-white flex items-center gap-2">
           <Users className="text-indigo-500" /> User & Staff Directory
         </h2>
@@ -61,7 +61,7 @@ export function UsersView({ currentUserRole }: UsersViewProps) {
               key={u._id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 shadow-xl flex items-start gap-4 relative overflow-hidden"
+              className="bg-white/5 border border-white/10 rounded-2xl p-5 shadow-xl flex items-start gap-4 relative overflow-hidden"
             >
               {/* Profile icon */}
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm border shrink-0 ${

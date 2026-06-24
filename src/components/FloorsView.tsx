@@ -122,12 +122,12 @@ export function FloorsView({ floors, fetchFloors, userRole }: FloorsViewProps) {
               key={floor._id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 flex flex-col justify-between space-y-4 shadow-xl relative overflow-hidden"
+              className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between space-y-4 shadow-xl relative overflow-hidden"
             >
               {/* Floor identity header */}
-              <div className="flex items-start justify-between border-b border-white/5 pb-3">
+              <div className="flex items-start justify-between border-b border-slate-800 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-indigo-400 border border-white/5">
+                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-indigo-400 border border-slate-800">
                     <Layers size={18} />
                   </div>
                   <div>
@@ -200,7 +200,7 @@ export function FloorsView({ floors, fetchFloors, userRole }: FloorsViewProps) {
                 </div>
 
                 {/* Simulated Glass track Progress bar */}
-                <div className="w-full h-2 rounded-full bg-slate-950 border border-white/5 overflow-hidden">
+                <div className="w-full h-2 rounded-full bg-[#0c0c0e] border border-slate-800 overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-500 ${
                       percentage >= 80 ? 'bg-red-500' : percentage >= 50 ? 'bg-amber-500' : 'bg-emerald-500'
@@ -211,7 +211,7 @@ export function FloorsView({ floors, fetchFloors, userRole }: FloorsViewProps) {
 
                 {/* Counter blocks */}
                 <div className="grid grid-cols-3 gap-2 pt-2 text-center text-[10px] font-mono">
-                  <div className="bg-white/5 border border-white/5 p-2 rounded-xl">
+                  <div className="bg-white/5 border border-slate-800 p-2 rounded-xl">
                     <div className="text-slate-400 font-bold mb-0.5">TOTAL</div>
                     <div className="text-xs text-white font-extrabold">{total}</div>
                   </div>
@@ -232,13 +232,13 @@ export function FloorsView({ floors, fetchFloors, userRole }: FloorsViewProps) {
 
       {/* Create floor modal overlay */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-[#09090b]/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-slate-900 border border-white/10 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative"
+            className="bg-[#0c0c0e] border border-slate-800 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative"
           >
-            <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
               <span className="font-sans font-bold text-white text-sm">Add Layout Floor</span>
               <button
                 onClick={() => setShowAddModal(false)}
@@ -256,7 +256,7 @@ export function FloorsView({ floors, fetchFloors, userRole }: FloorsViewProps) {
                   placeholder="e.g. 3"
                   value={floorNumber}
                   onChange={(e) => setFloorNumber(e.target.value)}
-                  className="w-full bg-slate-950 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
+                  className="w-full bg-[#09090b] border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
                   required
                 />
               </div>
@@ -268,7 +268,7 @@ export function FloorsView({ floors, fetchFloors, userRole }: FloorsViewProps) {
                   placeholder="e.g. Third Floor"
                   value={floorName}
                   onChange={(e) => setFloorName(e.target.value)}
-                  className="w-full bg-slate-950 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
+                  className="w-full bg-[#09090b] border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
                   required
                 />
               </div>

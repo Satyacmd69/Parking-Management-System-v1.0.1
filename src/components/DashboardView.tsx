@@ -128,8 +128,8 @@ export function DashboardView({
       {/* Advanced Visual Charts Grid (Bento style) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Curved area chart for 7 day revenue history */}
-        <div className="lg:col-span-2 bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/5 pb-3">
+        <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4 shadow-xl">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
               <TrendingUp size={16} className="text-emerald-400" />
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">7-Day Revenue Timeline</h3>
@@ -144,8 +144,8 @@ export function DashboardView({
         </div>
 
         {/* Ring chart for Category breakdown */}
-        <div className="bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 space-y-4">
-          <div className="flex items-center gap-2 border-b border-white/5 pb-3">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4 shadow-xl">
+          <div className="flex items-center gap-2 border-b border-slate-800 pb-3">
             <Car size={16} className="text-indigo-400" />
             <h3 className="text-xs font-bold text-white uppercase tracking-wider">Vehicle Type Analytics</h3>
           </div>
@@ -158,8 +158,8 @@ export function DashboardView({
       {/* Floor utilization bars & recent active check-ins */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Floor occupancy list */}
-        <div className="bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/5 pb-3">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4 shadow-xl">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <h3 className="text-xs font-bold text-white uppercase tracking-wider">Floor Occupancy Tracking</h3>
             <span className="text-[9px] font-mono text-slate-500 font-semibold">FLOOR-WISE</span>
           </div>
@@ -167,8 +167,8 @@ export function DashboardView({
         </div>
 
         {/* Live checked in tickers / recent entries list */}
-        <div className="lg:col-span-2 bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/5 pb-3">
+        <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4 shadow-xl">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
               <Clock size={16} className="text-indigo-400" />
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">Recent Live Entries</h3>
@@ -184,7 +184,7 @@ export function DashboardView({
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="text-slate-500 border-b border-white/5 pb-2">
+                <tr className="text-slate-500 border-b border-slate-800 pb-2">
                   <th className="font-mono font-bold pb-2">VEHICLE NO</th>
                   <th className="font-mono font-bold pb-2">OWNER NAME</th>
                   <th className="font-mono font-bold pb-2">TYPE</th>
@@ -193,7 +193,7 @@ export function DashboardView({
                   <th className="font-mono font-bold pb-2 text-right">ACTION</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-slate-800">
                 {metrics.recentEntries.length === 0 ? (
                   <tr>
                     <td colSpan={6} className="text-center py-6 text-slate-500 font-mono">

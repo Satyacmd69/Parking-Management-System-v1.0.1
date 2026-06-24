@@ -72,7 +72,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
 
   return (
     <div
-      className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-4 relative overflow-hidden"
+      className="min-h-screen bg-[#09090b] flex flex-col items-center justify-center p-4 relative overflow-hidden"
       id="auth-screen-container"
     >
       {/* Dynamic background orbits */}
@@ -84,7 +84,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md bg-slate-900/60 border border-white/5 backdrop-blur-md rounded-2xl p-6 shadow-2xl relative z-10 space-y-6"
+        className="w-full max-w-md bg-white/5 border border-white/10 rounded-2xl p-6 shadow-2xl relative z-10 space-y-6"
       >
         {/* Brand identity header */}
         <div className="flex flex-col items-center text-center gap-1.5">
@@ -112,7 +112,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
         )}
 
         {/* Toggle tabs */}
-        <div className="grid grid-cols-2 bg-slate-950/80 p-1 rounded-xl border border-white/5">
+        <div className="grid grid-cols-2 bg-[#0c0c0e] p-1 rounded-xl border border-slate-800">
           <button
             type="button"
             onClick={() => {
@@ -152,7 +152,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
                   placeholder="e.g. Rahul Sharma"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-slate-950 border border-white/5 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-700 focus:border-indigo-500 outline-none"
+                  className="w-full bg-[#09090b] border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-700 focus:border-indigo-500 outline-none"
                   required={!isLogin}
                 />
               </div>
@@ -169,7 +169,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
                 placeholder="e.g. staff@parking.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-slate-950 border border-white/5 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-700 focus:border-indigo-500 outline-none font-mono"
+                className="w-full bg-[#09090b] border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-700 focus:border-indigo-500 outline-none font-mono"
                 required
               />
             </div>
@@ -185,7 +185,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
                 placeholder="Password (e.g. staff123)"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-slate-950 border border-white/5 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-700 focus:border-indigo-500 outline-none"
+                className="w-full bg-[#09090b] border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-700 focus:border-indigo-500 outline-none"
                 required
               />
             </div>
@@ -200,7 +200,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value as 'admin' | 'staff')}
-                  className="w-full bg-slate-950 border border-white/5 rounded-xl pl-9 pr-4 py-2.5 text-xs text-slate-300 focus:border-indigo-500 outline-none"
+                  className="w-full bg-[#09090b] border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-slate-300 focus:border-indigo-500 outline-none"
                 >
                   <option value="staff">Staff Operator (Limited access)</option>
                   <option value="admin">Admin Manager (Full structural access)</option>
@@ -217,7 +217,7 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
                 id="remember"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
-                className="rounded border-white/10 bg-slate-950 text-indigo-600 focus:ring-0 cursor-pointer"
+                className="rounded border-slate-800 bg-[#09090b] text-indigo-600 focus:ring-0 cursor-pointer"
               />
               <label htmlFor="remember" className="cursor-pointer select-none">Remember Me</label>
             </div>
@@ -244,21 +244,21 @@ export function AuthScreen({ onAuthSuccess }: AuthScreenProps) {
         </form>
 
         {/* Quick seeds shortcuts */}
-        <div className="border-t border-white/5 pt-4">
+        <div className="border-t border-slate-800 pt-4">
           <p className="text-[10px] font-mono text-slate-500 text-center font-bold uppercase tracking-wider mb-2">
             System Seed Accounts (Quick shortcuts)
           </p>
           <div className="grid grid-cols-2 gap-2.5">
             <button
               onClick={() => handleQuickLogin('staff')}
-              className="px-3 py-1.5 bg-white/5 border border-white/5 rounded-xl text-[10px] font-semibold text-slate-300 hover:bg-white/10 text-center transition-all cursor-pointer flex flex-col items-center"
+              className="px-3 py-1.5 bg-white/5 border border-slate-800 rounded-xl text-[10px] font-semibold text-slate-300 hover:bg-white/10 text-center transition-all cursor-pointer flex flex-col items-center"
             >
               <span className="font-bold text-indigo-400">STAFF LOGIN</span>
               <span className="text-[8px] font-mono opacity-50">staff123</span>
             </button>
             <button
               onClick={() => handleQuickLogin('admin')}
-              className="px-3 py-1.5 bg-white/5 border border-white/5 rounded-xl text-[10px] font-semibold text-slate-300 hover:bg-white/10 text-center transition-all cursor-pointer flex flex-col items-center"
+              className="px-3 py-1.5 bg-white/5 border border-slate-800 rounded-xl text-[10px] font-semibold text-slate-300 hover:bg-white/10 text-center transition-all cursor-pointer flex flex-col items-center"
             >
               <span className="font-bold text-purple-400">ADMIN LOGIN</span>
               <span className="text-[8px] font-mono opacity-50">admin123</span>

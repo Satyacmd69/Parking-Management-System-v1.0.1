@@ -125,7 +125,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
       )}
 
       {/* Filters Panel bar */}
-      <div className="bg-slate-900/30 border border-white/5 rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-center">
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-center">
         {/* Search */}
         <div className="relative w-full sm:w-64">
           <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
@@ -134,7 +134,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
             placeholder="Search slot number..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-950 border border-white/5 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
+            className="w-full bg-[#0c0c0e] border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
           />
         </div>
 
@@ -144,7 +144,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
           <select
             value={selectedFloor}
             onChange={(e) => setSelectedFloor(e.target.value)}
-            className="bg-slate-950 border border-white/5 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none w-full sm:w-auto"
+            className="bg-[#0c0c0e] border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none w-full sm:w-auto"
           >
             <option value="all">All Floors</option>
             {floors.map((f) => (
@@ -159,7 +159,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
         <select
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
-          className="bg-slate-950 border border-white/5 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none w-full sm:w-auto"
+          className="bg-[#0c0c0e] border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none w-full sm:w-auto"
         >
           <option value="all">All Vehicle Types</option>
           <option value="car">Cars Only</option>
@@ -171,7 +171,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
         <select
           value={selectedStatus}
           onChange={(e) => setSelectedStatus(e.target.value)}
-          className="bg-slate-950 border border-white/5 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none w-full sm:w-auto"
+          className="bg-[#0c0c0e] border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none w-full sm:w-auto"
         >
           <option value="all">All Statuses</option>
           <option value="available">Available Only</option>
@@ -247,13 +247,13 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
 
       {/* Add Slot Modal Overlay */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-[#09090b]/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-slate-900 border border-white/10 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative"
+            className="bg-[#0c0c0e] border border-slate-800 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative"
           >
-            <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
               <span className="font-sans font-bold text-white text-sm">Add Parking Slot</span>
               <button
                 onClick={() => setShowAddModal(false)}
@@ -271,7 +271,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
                   placeholder="e.g. G-C06"
                   value={slotNumber}
                   onChange={(e) => setSlotNumber(e.target.value)}
-                  className="w-full bg-slate-950 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
+                  className="w-full bg-[#09090b] border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-600 focus:border-indigo-500 outline-none"
                   required
                 />
               </div>
@@ -281,7 +281,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
                 <select
                   value={floorId}
                   onChange={(e) => setFloorId(e.target.value)}
-                  className="w-full bg-slate-950 border border-white/10 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none"
+                  className="w-full bg-[#09090b] border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none"
                   required
                 >
                   {floors.map((f) => (
@@ -297,7 +297,7 @@ export function SlotsView({ slots, floors, fetchSlots, userRole }: SlotsViewProp
                 <select
                   value={slotType}
                   onChange={(e) => setSlotType(e.target.value)}
-                  className="w-full bg-slate-950 border border-white/10 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none"
+                  className="w-full bg-[#09090b] border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:border-indigo-500 outline-none"
                   required
                 >
                   <option value="car">Car (Standard)</option>

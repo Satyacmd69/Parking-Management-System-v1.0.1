@@ -101,7 +101,7 @@ export function ExitView({
   return (
     <div className="p-6 space-y-6" id="exit-screen">
       {/* Title */}
-      <div className="border-b border-white/5 pb-4 mb-4">
+      <div className="border-b border-slate-800 pb-4 mb-4">
         <h2 className="text-xl font-sans font-extrabold text-white flex items-center gap-2">
           <LogOut className="text-indigo-500" /> Vehicle Check-Out & Bill
         </h2>
@@ -123,7 +123,7 @@ export function ExitView({
       {/* Main Column Split */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* Left Side: Select Active Vehicle */}
-        <div className="lg:col-span-2 bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 space-y-4 shadow-xl">
+        <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4 shadow-xl">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-bold text-white uppercase tracking-wider">Active Parked Vehicles ({filteredVehicles.length})</h3>
             <div className="relative w-48">
@@ -133,7 +133,7 @@ export function ExitView({
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-950 border border-white/5 rounded-lg pl-8 pr-3 py-1 text-[11px] text-white placeholder-slate-700 focus:border-indigo-500 outline-none"
+                className="w-full bg-[#0c0c0e] border border-slate-800 rounded-lg pl-8 pr-3 py-1 text-[11px] text-white placeholder-slate-700 focus:border-indigo-500 outline-none"
               />
             </div>
           </div>
@@ -155,11 +155,11 @@ export function ExitView({
                     className={`p-3 rounded-xl border flex items-center justify-between hover:bg-white/5 transition-all cursor-pointer ${
                       isSelected
                         ? 'bg-indigo-600/10 border-indigo-500/40 text-indigo-400 font-bold'
-                        : 'bg-transparent border-white/5 text-slate-300'
+                        : 'bg-transparent border-slate-800 text-slate-300'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-white/5 border border-white/5 text-slate-300 shrink-0">
+                      <div className="p-2 rounded-lg bg-white/5 border border-slate-800 text-slate-300 shrink-0">
                         <Car size={16} />
                       </div>
                       <div>
@@ -191,13 +191,13 @@ export function ExitView({
         </div>
 
         {/* Right Side: Bill calculation & checkout confirmation panel */}
-        <div className="bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-5 shadow-xl space-y-4 relative">
-          <h3 className="text-xs font-bold text-white uppercase tracking-wider border-b border-white/5 pb-2">Checkout Bill</h3>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 shadow-xl space-y-4 relative">
+          <h3 className="text-xs font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">Checkout Bill</h3>
 
           {selectedVehicle ? (
             <div className="space-y-4">
               {/* Selected Vehicle Info */}
-              <div className="bg-white/5 p-3 rounded-xl border border-white/5 space-y-1">
+              <div className="bg-white/5 p-3 rounded-xl border border-slate-800 space-y-1">
                 <div className="text-[10px] font-mono font-bold text-indigo-400 tracking-wider">SELECTED VEHICLE</div>
                 <div className="text-sm font-bold text-white font-mono tracking-wide">{selectedVehicle.vehicleNumber}</div>
                 <div className="text-[10px] text-slate-400">
@@ -214,22 +214,22 @@ export function ExitView({
                 <div className="space-y-4">
                   {/* Calculations details */}
                   <div className="space-y-2 text-xs font-mono">
-                    <div className="flex justify-between border-b border-white/5 pb-1 text-slate-400">
+                    <div className="flex justify-between border-b border-slate-800 pb-1 text-slate-400">
                       <span>Tariff duration</span>
                       <span className="text-white font-bold">{Math.round(billingDetails.durationMins)} Min</span>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1 text-slate-400">
+                    <div className="flex justify-between border-b border-slate-800 pb-1 text-slate-400">
                       <span>Category Factor</span>
                       <span className="text-white font-bold capitalize">{selectedVehicle.vehicleType}</span>
                     </div>
-                    <div className="flex justify-between text-indigo-400 font-bold border-b border-white/10 pb-1.5 pt-1">
+                    <div className="flex justify-between text-indigo-400 font-bold border-b border-slate-800 pb-1.5 pt-1">
                       <span>Total Parking Fee</span>
                       <span className="text-lg text-emerald-400">₹{billingDetails.amount}</span>
                     </div>
                   </div>
 
                   {/* Pricing logic helper card */}
-                  <div className="bg-white/5 border border-white/5 p-2 rounded-lg text-[9px] font-mono text-slate-500 leading-normal">
+                  <div className="bg-white/5 border border-slate-800 p-2 rounded-lg text-[9px] font-mono text-slate-500 leading-normal">
                     * TARIEF: First hour = ₹20. Next hour = ₹10. Bike category enjoys a 50% discount. Trucks have a 2x surcharge.
                   </div>
 

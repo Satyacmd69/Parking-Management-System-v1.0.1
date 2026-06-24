@@ -72,7 +72,7 @@ export function EntryView({
   return (
     <div className="p-6 max-w-xl mx-auto" id="entry-screen">
       {/* Title */}
-      <div className="border-b border-white/5 pb-4 mb-6">
+      <div className="border-b border-slate-800 pb-4 mb-6">
         <h2 className="text-xl font-sans font-extrabold text-white flex items-center gap-2">
           <LogIn className="text-indigo-500" /> Vehicle Check-In
         </h2>
@@ -92,7 +92,7 @@ export function EntryView({
       )}
 
       {/* Glassmorphic Check-In Form */}
-      <form onSubmit={handleSubmitEntry} className="bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-2xl p-6 space-y-6 shadow-xl">
+      <form onSubmit={handleSubmitEntry} className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-6 shadow-xl">
         {/* Category select block */}
         <div className="space-y-2">
           <label className="text-[10px] font-mono font-bold text-slate-400 tracking-wider">VEHICLE CATEGORY</label>
@@ -108,7 +108,7 @@ export function EntryView({
                   className={`border rounded-xl p-3.5 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all ${
                     isSelected
                       ? 'bg-indigo-600/15 border-indigo-500 text-indigo-400 font-bold shadow-md shadow-indigo-600/5'
-                      : 'bg-transparent border-white/5 text-slate-400 hover:bg-white/5 hover:text-white'
+                      : 'bg-transparent border-slate-800 text-slate-400 hover:bg-white/5 hover:text-white'
                   }`}
                 >
                   <Icon size={20} />
